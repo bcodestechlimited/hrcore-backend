@@ -1,0 +1,87 @@
+import { checkUserTypesService } from '../../middlewares/authentication';
+import { GuardFunction } from '../../guards';
+import { FilterQuery } from 'mongoose';
+import { {{fcapitalize name}} } from './schema';
+
+export const canCreate{{fcapitalize name}}: GuardFunction<FilterQuery<{{fcapitalize name}}>> = async (
+  req,
+  exec,
+) => {
+  try {
+    await checkUserTypesService(req, ['super']);
+    // throw new Error('Not implemented');
+    return {
+      auth: true,
+      message: 'Can create {{fcapitalize name}}',
+      query: {
+        createdBy: req.user._id,
+      },
+    };
+  } catch (error) {
+    return {
+      auth: false,
+      message: error.message,
+      query: {},
+    };
+  }
+};
+
+export const canFetch{{fcapitalize name}}: GuardFunction<FilterQuery<{{fcapitalize name}}>> = async (
+  req,
+  exec,
+) => {
+  try {
+    await checkUserTypesService(req, ['super']);
+    return {
+      auth: true,
+      message: 'Can fetch {{fcapitalize name}}',
+      query: {},
+    };
+  } catch (error) {
+    return {
+      auth: false,
+      message: error.message,
+      query: {},
+    };
+  }
+};
+
+export const canUpdate{{fcapitalize name}}: GuardFunction<FilterQuery<{{fcapitalize name}}>> = async (
+  req,
+  exec,
+) => {
+  try {
+    await checkUserTypesService(req, ['super']);
+    return {
+      auth: true,
+      message: 'Can update {{fcapitalize name}}',
+      query: {},
+    };
+  } catch (error) {
+    return {
+      auth: false,
+      message: error.message,
+      query: {},
+    };
+  }
+};
+
+export const canDelete{{fcapitalize name}}: GuardFunction<FilterQuery<{{fcapitalize name}}>> = async (
+  req,
+  exec,
+) => {
+  try {
+    await checkUserTypesService(req, ['super']);
+    return {
+      auth: true,
+      message: 'Can delete {{fcapitalize name}}',
+      query: {},
+    };
+  } catch (error) {
+    return {
+      auth: false,
+      message: error.message,
+      query: {},
+    };
+  }
+};

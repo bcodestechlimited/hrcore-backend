@@ -1,0 +1,34 @@
+/**
+ * Updates {{name}}
+ * 
+ * @openapi
+ * 
+ * {{url}}:
+ *   put:
+ *     summary: PUT {{name}}
+ *     description: {{{description}}}
+ *     tags:
+ *       - {{name}}
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/{{schema}}'
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *               - $ref: '#/components/schemas/{{schema}}'
+ *         multipart/form-data:
+ *           schema:
+ *             $ref: '#/components/schemas/{{schema}}'
+ *     responses:
+ *       200:
+ *         description: {{name}} successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ {{paramDocs}}
+ */

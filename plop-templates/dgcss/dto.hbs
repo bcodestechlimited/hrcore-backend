@@ -1,0 +1,23 @@
+import { IsOptional } from 'class-validator';
+import { {{fcapitalize name}} } from './schema';
+import { IDocs } from '../../utilities/templates/types';
+
+const doc: IDocs = {};
+
+export class Create{{fcapitalize name}}Dto implements Omit<Required<{{fcapitalize name}}>, 'createdBy'> {}
+
+doc['/'] = {
+  POST: {
+    schema: Create{{fcapitalize name}}Dto.name,
+  },
+};
+
+export class Update{{fcapitalize name}}Dto implements Omit<Create{{fcapitalize name}}Dto, ''> {}
+
+doc['/:id'] = {
+  PUT: {
+    schema: Update{{fcapitalize name}}Dto.name,
+  },
+};
+
+export const docs = doc;

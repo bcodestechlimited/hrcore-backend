@@ -1,0 +1,121 @@
+import { QueryOptions, UpdateQuery } from 'mongoose';
+import { FindQuery, QueryReturn, find, findOne } from '../../utilities/query';
+import { Create{{fcapitalize name}}Dto, Update{{fcapitalize name}}Dto } from './dto';
+import { {{fcapitalize name}} } from './schema';
+import {
+  serviceError,
+  serviceSuccess,
+  serviceResponseType,
+} from '../../utilities/response';
+import { {{fcapitalize name}}Model } from '../../models';
+import { FindOneReturnType, DeletedResultType, CreateReturnType } from '../../utilities/templates/types';
+
+export default class {{fcapitalize name}}Service {
+  static async fetch(
+    queries: FindQuery,
+    conditions: FindQuery | undefined = undefined,
+  ): Promise<serviceResponseType<QueryReturn<{{fcapitalize name}}>>> {
+    try {
+      let found{{fcapitalize name}}s;
+      if (conditions) {
+        found{{fcapitalize name}}s = await find({{fcapitalize name}}Model, queries, conditions);
+      } else {
+        found{{fcapitalize name}}s = await find({{fcapitalize name}}Model, queries);
+      }
+      return serviceSuccess(found{{fcapitalize name}}s, '{{startcase name}}s fetched successfully');
+    } catch (error) {
+      return serviceError(error);
+    }
+  }
+
+  static async create(
+    payload: Create{{fcapitalize name}}Dto,
+    data: Partial<{{fcapitalize name}}> = {},
+  ): Promise<serviceResponseType<CreateReturnType<{{fcapitalize name}}>>> {
+    // return await {{fcapitalize name}}Model.create(data);
+    try {
+      const created{{fcapitalize name}} = await {{fcapitalize name}}Model.create({ ...payload, ...data });
+      return serviceSuccess(created{{fcapitalize name}}, '{{startcase name}} created successfully', 201);
+    } catch (error) {
+      return serviceError(error);
+    }
+  }
+
+  static async fetchOne(
+    queries: FindQuery,
+    conditions: FindQuery | undefined = undefined,
+  ): Promise<serviceResponseType<FindOneReturnType<{{fcapitalize name}}>>> {
+    try {
+      let found{{fcapitalize name}};
+      if (conditions) {
+        found{{fcapitalize name}} = await findOne({{fcapitalize name}}Model, queries, conditions);
+      } else {
+        found{{fcapitalize name}} = await findOne({{fcapitalize name}}Model, queries);
+      }
+      if (!found{{fcapitalize name}}) {
+        throw {
+          message: '{{startcase name}} not found or access denied',
+          statusCode: 404,
+        };
+      }
+      return serviceSuccess(found{{fcapitalize name}}, '{{startcase name}} fetched successfully');
+    } catch (error) {
+      return serviceError(error);
+    }
+  }
+
+  static async updateOne(
+    queries: { [key: string]: any; _id: string },
+    data: Partial<Update{{fcapitalize name}}Dto>,
+    others: UpdateQuery<{{fcapitalize name}}> & Partial<{{fcapitalize name}}> = {},
+    options: QueryOptions = { new: true, runValidators: true },
+  ): Promise<serviceResponseType<FindOneReturnType<{{fcapitalize name}}>>> {
+    try {
+      // const found{{fcapitalize name}} = await findOne({{fcapitalize name}}Model, queries);
+      // if (!found{{fcapitalize name}}) {
+      //   throw {
+      //     message: '{{startcase name}} not found or access denied',
+      //     statusCode: 404,
+      //   };
+      // }
+      const updated{{fcapitalize name}} = await {{fcapitalize name}}Model.findOneAndUpdate(
+        queries,
+        { ...data, ...others },
+        options,
+      ).orFail();
+      return serviceSuccess(updated{{fcapitalize name}}, '{{startcase name}} updated successfully');
+    } catch (error) {
+      return serviceError(error);
+    }
+  }
+
+  static async deleteOne(
+    id: string,
+    queries: FindQuery,
+  ): Promise<serviceResponseType<FindOneReturnType<{{fcapitalize name}}>>> {
+    try {
+      // const found{{fcapitalize name}} = await findOne({{fcapitalize name}}Model, queries, {
+      //   _id: id,
+      // });
+      // if (!found{{fcapitalize name}}) {
+      //   throw {
+      //     message: '{{startcase name}} not found or access denied',
+      //     statusCode: 404,
+      //   };
+      // }
+      const deleted{{fcapitalize name}} = await {{fcapitalize name}}Model.findOneAndDelete({
+        ...queries,
+        _id: id,
+      });
+      if (!deleted{{fcapitalize name}}) {
+        throw {
+          message: '{{startcase name}} not found or access denied',
+          statusCode: 404,
+        };
+      }
+      return serviceSuccess(deleted{{fcapitalize name}}, '{{startcase name}} deleted successfully');
+    } catch (error) {
+      return serviceError(error);
+    }
+  }
+}
