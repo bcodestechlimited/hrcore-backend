@@ -86,7 +86,7 @@ export const isPermitted = async (
   const userpermissions = theUser.permissions.filter(
     (p) => p.status === 'active',
   );
-  console.log('user active permissions', userpermissions);
+  // console.log('user active permissions', userpermissions);
   roles.forEach((role) => {
     permissions.push(
       ...role.permissions
@@ -95,7 +95,7 @@ export const isPermitted = async (
     );
   });
   permissions.push(...userpermissions.map((p: any) => p.name));
-  console.log('permissions', permissions);
+  // console.log('permissions', permissions);
   const auth = user.type === 'super' ? true : permissions.includes(permission);
   return {
     auth,

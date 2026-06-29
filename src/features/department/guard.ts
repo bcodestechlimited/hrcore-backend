@@ -13,7 +13,7 @@ export const canCreateDepartment = async (
   }>,
 ): Promise<PermType> => {
   try {
-    console.log('req.user in createDepa', req.user);
+    // console.log('req.user in createDepa', req.user);
     throwPermIfError(await isCompanyAdmin(req, true));
     // throw new Error('Not implemented');
     return {

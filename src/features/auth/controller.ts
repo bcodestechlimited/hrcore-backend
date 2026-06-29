@@ -12,7 +12,10 @@ import {
   VerifyEmailDto,
   VerifyEmailResendDto,
 } from './dto';
-import { authenticate, authenticateAdmin } from '../../middlewares/authentication';
+import {
+  authenticate,
+  authenticateAdmin,
+} from '../../middlewares/authentication';
 import { remoteCallWithMethod } from '../../utilities';
 const router = express.Router();
 

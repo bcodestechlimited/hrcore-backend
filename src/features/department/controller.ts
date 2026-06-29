@@ -75,7 +75,7 @@ router.put(
     res: Response,
   ) => {
     const perm = throwPermIfError(await isCompanyAdmin(req, true));
-    console.log('perm', perm);
+    // console.log('perm', perm);
     const content = throwIfError(
       await DepartmentService.updateOne(
         { _id: req.params.id, company: perm.query.company },

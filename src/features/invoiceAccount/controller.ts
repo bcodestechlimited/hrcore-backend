@@ -16,7 +16,7 @@ const router = express.Router();
 const InvoiceAccountPathName = '/InvoiceAccount';
 
 router.post('/', async (req: Request, res: Response) => {
-  console.log(req.headers, 'req.headers', req.body, 'req.body');
+  // console.log(req.headers, 'req.headers', req.body, 'req.body');
   const perm = throwPermIfError(await canCreateInvoiceAccount(req, true));
   const content = throwIfError(
     await InvoiceAccountService.create(req.body, {
@@ -27,7 +27,7 @@ router.post('/', async (req: Request, res: Response) => {
 });
 
 router.get('/', async (req: Request, res: Response) => {
-  console.log(req.query, 'req.query');
+  // console.log(req.query, 'req.query');
   const perm = throwPermIfError(await canFetchInvoiceAccount(req, false));
   const content = throwIfError(
     await InvoiceAccountService.fetch(req.query, {

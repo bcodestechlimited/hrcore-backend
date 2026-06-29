@@ -15,7 +15,8 @@
     "run": "ts-node --transpile-only",
     "lint": "eslint --fix",
     "startproj": "node dist/index.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "copy-db": "bun run ./src/scripts/copy-db.ts"
   },
   "license": "MIT",
   "dependencies": {

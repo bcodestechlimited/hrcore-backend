@@ -416,5 +416,5 @@ export function mongooseDocsOutputHTML(
     );
   });
 
-  console.log(`documentation files written to ${fileDirectory}`);
+  // console.log(`documentation files written to ${fileDirectory}`);
 }

@@ -21,7 +21,7 @@ use(database);
 // find all users with the company = 64b7d183a3af43611a768a80
 const companyId = ObjectId('64b7d25484151e9e5b82332e');
 const users = db.users.find({ company: companyId }).toArray()
-console.log(users.length);
+// console.log(users.length);
 const usersIds = users.map(user => {
   const {_id} = user;
   return _id;

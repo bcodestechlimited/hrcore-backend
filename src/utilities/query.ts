@@ -124,7 +124,7 @@ const get = async <DT>(
 
     // get all key item that have value as array
     const arrayFields = _.pickBy(conditions, (value) => Array.isArray(value));
-    console.log('arrayFields', arrayFields);
+    // console.log('arrayFields', arrayFields);
 
     const andQueries: any[] = [];
     // process operator for each arrayFields
@@ -141,7 +141,7 @@ const get = async <DT>(
         const processedOp = processOperators({
           [field]: value,
         });
-        console.log('processedOp', processedOp);
+        // console.log('processedOp', processedOp);
         andQueries.push(processedOp);
       });
       // andQueries.push({ [field]: arrayFieldQuery });
@@ -152,7 +152,7 @@ const get = async <DT>(
       delete conditions[field];
     });
 
-    console.log('andQueries', andQueries);
+    // console.log('andQueries', andQueries);
 
     conditions = {
       ...conditions,
@@ -183,7 +183,7 @@ const get = async <DT>(
       // add the searchQuery to the conditions
     }
 
-    console.log('conditions before filtering', conditions);
+    // console.log('conditions before filtering', conditions);
 
     const fields = Object.keys(model.schema.paths);
     // const filteredQuery = _.pick(conditions, fields);
@@ -191,7 +191,7 @@ const get = async <DT>(
     // check if the model is set to strict or not
     const schema: any = model?.schema || {};
     const { strict } = (schema?.options || {}) as { strict: boolean };
-    console.log('strict', strict);
+    // console.log('strict', strict);
     let _filterOnPopulate = false;
     if (conditions._filterOnPopulate) {
       const models: any = {};
@@ -217,9 +217,9 @@ const get = async <DT>(
         if (model) {
           // const modelFields = Object.keys(model.schema.paths);
           // search by the other parts of fieldParts
-          console.info(fieldParts, 'fieldParts');
+          // console.info(fieldParts, 'fieldParts');
           const modelFields = fieldParts.slice(1);
-          console.info(modelFields, 'modelFields');
+          // console.info(modelFields, 'modelFields');
           const filteredQuery: any = {};
           modelFields.forEach((modelField) => {
             const theField = fieldParts[0].concat('.', modelField);
@@ -228,13 +228,13 @@ const get = async <DT>(
           // if filtered query is not empty
           if (!_.isEmpty(filteredQuery)) {
             const ids = await model.find(filteredQuery, '_id');
-            console.info(filteredQuery, 'filteredQuery', ids, 'ids');
+            // console.info(filteredQuery, 'filteredQuery', ids, 'ids');
             if (!conditions[fieldParts[0]]) {
               conditions[fieldParts[0]] = { $in: ids };
             }
           }
           delete conditions[field];
-          console.info(conditions, 'conditions');
+          // console.info(conditions, 'conditions');
         }
       }
       _filterOnPopulate = true;
@@ -247,10 +247,10 @@ const get = async <DT>(
         return fields.includes(key);
       });
       conditions = filteredQuery;
-      console.log('conditions after filtering', conditions);
+      // console.log('conditions after filtering', conditions);
     }
 
-    console.log('final condition before query', conditions);
+    // console.log('final condition before query', conditions);
 
     // let q = model[multiple ? 'find' : 'findOne'](conditions);
     // let q: mongoose.Query<DT, DT>;
@@ -285,7 +285,7 @@ const get = async <DT>(
         .limit(limit)
         .sort({ [orderBy]: order });
       const docs = await q.skip(skip).limit(limit);
-      console.log('final condition', conditions);
+      // console.log('final condition', conditions);
       return {
         docs,
         page,

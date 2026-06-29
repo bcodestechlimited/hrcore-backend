@@ -17,6 +17,36 @@ export default class VoucherService {
     try {
       let foundVouchers;
       if (conditions) {
+        console.log(
+          `============================== Vouchers Start =====================`,
+        );
+        console.log({
+          queries,
+          conditions,
+        });
+        console.log(
+          `============================== Vouchers End =====================`,
+        );
+
+        //         {
+        //   queries: {
+        //     _populate: [
+        //       'payingBank',
+        //       'receipient',
+        //       'createdBy',
+        //       'endorsedBy',
+        //       'approvedBy',
+        //       'endorsedBy',
+        //       'approvedBy',
+        //       'updatedBy',
+        //       'updatedBy'
+        //     ],
+        //     _limit: '0'
+        //   },
+        //   conditions: { company: new ObjectId("64b7d25484151e9e5b82332e") }
+        // }
+        
+
         foundVouchers = await find(VoucherModel, queries, conditions);
       } else {
         foundVouchers = await find(VoucherModel, queries);
@@ -48,7 +78,7 @@ export default class VoucherService {
 
   static async regenerateVooucherNumbers() {
     const vouchers = await VoucherModel.find();
-    console.log('vouchers', vouchers.length);
+    // console.log('vouchers', vouchers.length);
     // find all voucher with duplicate numbers
     let duplicateVouchers = await VoucherModel.aggregate([
       {
@@ -63,11 +93,11 @@ export default class VoucherService {
         },
       },
     ]);
-    console.log('duplicateVouchers', duplicateVouchers);
+    // console.log('duplicateVouchers', duplicateVouchers);
     for (let i = 0; i < vouchers.length; i++) {
       const voucher = vouchers[i];
       const numberString = `${i}`.padStart(5, '0');
-      console.log('numberString', numberString);
+      // console.log('numberString', numberString);
       await VoucherModel.findByIdAndUpdate(
         voucher._id,
         {
@@ -89,8 +119,8 @@ export default class VoucherService {
         },
       },
     ]);
-    console.log('duplicateVouchers', duplicateVouchers);
-    console.log('done');
+    // console.log('duplicateVouchers', duplicateVouchers);
+    // console.log('done');
   }
 
   static async create(
@@ -117,7 +147,7 @@ export default class VoucherService {
       //   Amount: ${createdVoucher.amount}
 
       //   Please login to your account to view the voucher.
-        
+
       //   `,
       // );
       return {

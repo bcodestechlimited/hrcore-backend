@@ -2,11 +2,9 @@ import 'reflect-metadata';
 import 'express-async-errors';
 import express, { Application, Request, Response } from 'express';
 import helmet from 'helmet';
-import './config/connectDb';
 import './environment';
 import errorHandler from './middlewares/errorHandler';
 import morgan from 'morgan';
-import seed from './config/seeders/seed';
 import router from './routes/v1';
 import morganBody from 'morgan-body';
 import swaggerUi from 'swagger-ui-express';
@@ -23,8 +21,6 @@ const listEndpoints = require('express-list-endpoints');
 const app: Application = express();
 
 app.use(cors());
-
-seed();
 
 app.use('/static', express.static('public'));
 

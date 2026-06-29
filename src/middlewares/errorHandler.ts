@@ -18,7 +18,7 @@ export default function errorHandler(
     err = err.data;
   }
   if (axios.isAxiosError(err)) {
-    console.log("Axios Error")
+    // console.log("Axios Error")
     const aerr: AxiosError = err;
     return response(
       res,
@@ -27,14 +27,14 @@ export default function errorHandler(
       aerr.response?.data,
     );
   }
-  console.error('errorHandler starts', err.name, { err }, err?.data, 'errorHandler ends', axios.isAxiosError(err));
+  // console.error('errorHandler starts', err.name, { err }, err?.data, 'errorHandler ends', axios.isAxiosError(err));
   if (err.name === 'DTOValidationError') {
     return response(res, 400, err.message, err);
   }
   let error = mongooseErrorHandler(err);
   let enumValues: any = {};
   let errData: any = {};
-  console.log(error.name, 'error 33');
+  // console.log(error.name, 'error 33');
   if (error.name === 'MongooseValidatorError') {
     const error = mongooseErrorHandler(err, {
       messages: {
@@ -60,7 +60,7 @@ export default function errorHandler(
     return response(res, 400, upperFirst(message), errData);
   }
 
-  console.log(error.name, 'error 59');
+  // console.log(error.name, 'error 59');
   if (err.type === 'entity.parse.failed') {
     return response(res, 400, 'Invalid payload passed.');
   }

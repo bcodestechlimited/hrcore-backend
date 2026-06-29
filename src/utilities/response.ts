@@ -26,7 +26,7 @@ export const throwIfError = <MT = any>(
 ): serviceResponseType<MT> & {
   statusCode: number;
 } => {
-  console.log(fn, 'fn data');
+  // console.log(fn, 'fn data');
 
   if (fn.success === false) {
     let data: serviceResponseType<MT> = {
@@ -57,7 +57,7 @@ export const throwPermIfError = <T>(
   fn: PermType<T>,
   next?: NextFunction,
 ): PermType<T> => {
-  console.log(fn, 'fn data');
+  // console.log(fn, 'fn data');
 
   if (fn.auth === true) {
     return fn;

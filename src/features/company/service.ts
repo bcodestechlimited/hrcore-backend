@@ -178,14 +178,14 @@ export default class CompanyService {
         if (isDocument(manager)) {
           await mailService(subject, manager.email, message);
         } else {
-          console.warn('manager is not a document', manager);
+          // console.warn('manager is not a document', manager);
         }
       }
       for (const executive of foundCompany.executive || []) {
         if (isDocument(executive)) {
           await mailService(subject, executive.email, message);
         } else {
-          console.warn('executive is not a document', executive);
+          // console.warn('executive is not a document', executive);
         }
       }
 
@@ -315,7 +315,7 @@ export default class CompanyService {
         if (isDocument(staff)) {
           await mailService(subject, staff.email, message);
         } else {
-          console.warn('staff is not a document', staff);
+          // console.warn('staff is not a document', staff);
         }
         return {
           success: true,
@@ -329,7 +329,7 @@ export default class CompanyService {
         if (isDocument(staff)) {
           await mailService(subject, staff.email, message);
         } else {
-          console.warn('staff is not a document', staff);
+          // console.warn('staff is not a document', staff);
         }
       }
 

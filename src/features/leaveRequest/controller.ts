@@ -186,7 +186,7 @@ router.put(
       }),
     );
 
-    console.log(leaveRequest.data, 'leaveRequest.data');
+    // console.log(leaveRequest.data, 'leaveRequest.data');
 
     if (data.status === 'Approved') {
       // next approver is the next person in the chain

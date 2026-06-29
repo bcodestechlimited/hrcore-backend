@@ -80,7 +80,7 @@ export const isCompanyAdmin = async (
       _id: companyId,
       ...data.query,
     });
-    console.log('company in isCompanyAdmin', company, data.query);
+    // console.log('company in isCompanyAdmin', company, data.query);
     if (!company) {
       throw {
         message: 'Access denied',
@@ -226,7 +226,7 @@ export const isCompanyStaff = async (
     // if (exec === false) {
     //   return data;
     // }
-    console.log('data.query', data.query);
+    // console.log('data.query', data.query);
     const company = await CompanyModel.findOne({
       _id: companyId,
       ...data.query,

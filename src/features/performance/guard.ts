@@ -28,9 +28,9 @@ export const canFetchPerformance: GuardFunction = async (req, exec) => {
   try {
     let query;
     const perm = await isCompanyStaff(req, true);
-    console.log({
-      perm,
-    });
+    // console.log({
+    //   perm,
+    // });
     query = {
       // company: perm.query.company,
       // active: true,

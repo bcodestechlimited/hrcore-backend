@@ -27,7 +27,7 @@ export const canCreateMedias: GuardFunction = async (req, exec) => {
 export const canFetchMedias: GuardFunction = async (req, exec) => {
   try {
     const perm = throwPermIfError(await isCompanyStaff(req, exec));
-    console.log(perm, 'perm');
+    // console.log(perm, 'perm');
     return {
       auth: true,
       message: 'Can fetch Medias',

@@ -102,7 +102,7 @@ router.put('/add/admin/:id/:userId', async (req: Request, res: Response) => {
       },
     ),
   );
-  console.log(req.params.id, req.params.userId);
+  // console.log(req.params.id, req.params.userId);
   return response(res, content.statusCode, content.message, content.data);
 });
 
@@ -235,7 +235,7 @@ router.put(
         },
       ),
     );
-    console.log(req.params.id, req.params.userId);
+    // console.log(req.params.id, req.params.userId);
     return response(res, content.statusCode, content.message, content.data);
   },
 );

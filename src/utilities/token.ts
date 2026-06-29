@@ -25,7 +25,7 @@ export const genToken = async (
   });
   token.expireAt = new Date(token.createdAt.getTime() + 30 * 60 * 1000);
   token.save();
-  console.log('Token created: ', token, 'token');
+  // console.log('Token created: ', token, 'token');
   return token.token;
 };
 

@@ -67,7 +67,7 @@ export default class NotificationService {
         users = user.map((u) => u._id);
       }
 
-      console.log(users, 'users to not');
+      // console.log(users, 'users to not');
       // send notification to users with novu
       for (const user of users) {
         data.user = user;
@@ -87,7 +87,7 @@ export default class NotificationService {
           //   // },
           // },
         });
-        console.log(notification.data, 'notification data');
+        // console.log(notification.data, 'notification data');
       }
       return {
         success: true,
@@ -95,7 +95,7 @@ export default class NotificationService {
         data: '',
       };
     } catch (error) {
-      console.log(error, 'error sending notification');
+      // console.log(error, 'error sending notification');
       return {
         success: false,
         message: 'Error creating notification',
@@ -121,13 +121,13 @@ export default class NotificationService {
           },
         },
       );
-      console.log(subscribed.data, 'subscribed data');
+      // console.log(subscribed.data, 'subscribed data');
       this.novu.addListener('notification', async (notification) => {
-        console.log(
-          'notification start',
-          notification,
-          'notification received',
-        );
+        // console.log(
+        //   'notification start',
+        //   notification,
+        //   'notification received',
+        // );
       });
       return {
         success: true,

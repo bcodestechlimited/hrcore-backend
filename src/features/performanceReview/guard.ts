@@ -35,7 +35,7 @@ export const canFetchPerformanceReview: GuardFunction = async (req, exec) => {
       // createdBy: req.user._id,
     };
     if (!perm.auth) {
-      console.log("Permission isn't staff");
+      // console.log("Permission isn't staff");
       const perm = throwPermIfError(await isCompanyAdmin(req, true));
 
       query = {

@@ -74,4 +74,4 @@ To run the tests, run `yarn test` in the root directory of the project. This wil
 To contribute to this project, please fork the repository and create a pull request. Please make sure that all tests pass before creating a pull request.
 
 
-console\.log\((.*)\)
+<!-- console\.log\((.*)\) -->

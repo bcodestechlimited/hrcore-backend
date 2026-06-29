@@ -151,7 +151,7 @@ export default class RoleService {
     permissions: string[],
   ): Promise<serviceResponseType> {
     try {
-      console.log(query, 'query');
+      // console.log(query, 'query');
       const foundRole = await Role.findOne(query);
       if (!foundRole) {
         throw new Error('Role not found or access denied');
@@ -161,7 +161,7 @@ export default class RoleService {
           $in: permissions,
         },
       });
-      console.log(permissionIds, 'permissionIds');
+      // console.log(permissionIds, 'permissionIds');
       foundRole.permissions = [
         ...foundRole.permissions,
         ...permissionIds.map((permission) => permission._id),

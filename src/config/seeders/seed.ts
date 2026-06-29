@@ -1,6 +1,5 @@
 import User, { UserType } from '../../models/userModel';
 import Settings from '../../models/settingsModel';
-import connectDb from '../connectDb';
 import '../backup';
 import Permission from '../../models/permissionModel';
 import Role from '../../models/role.model';
@@ -8,6 +7,7 @@ import { importAllModels } from '../../controllers/generators/service';
 import { crudModelPermssions } from '../../guards';
 import { Types } from 'mongoose';
 import _ from 'lodash';
+import log from '../../logger';
 
 const payload = {
   firstName: 'Super',
@@ -38,6 +38,7 @@ const roles = {
 // console.log('roles', roles);
 const seed = async (): Promise<void> => {
   try {
+    log.info('Seeding...');
     // const service = Promise.all([DojahService.subscribeToService()]);
     // service.then((res) => {
     //   console.log('res', res);
@@ -48,14 +49,13 @@ const seed = async (): Promise<void> => {
       const permissionsM = crudModelPermssions(model);
       superAdminPermissions.push(...permissionsM);
     });
-    await connectDb();
     let admin = await User.findOne({
       email: payload.email?.toLocaleLowerCase(),
     });
 
     if (!admin) {
       admin = await User.register(new User(payload), payload.password);
-      console.log('admin seeded successfully', admin);
+      // console.log('admin seeded successfully', admin);
     }
 
     let settings = await Settings.findOne({});
@@ -63,7 +63,7 @@ const seed = async (): Promise<void> => {
       settings = await Settings.create({
         superAdmin: admin._id,
       });
-      console.log('settings seeded successfully', settings);
+      // console.log('settings seeded successfully', settings);
     }
 
     let permissions: Types.ObjectId[] = [];
@@ -77,11 +77,11 @@ const seed = async (): Promise<void> => {
         }
         permissions.push(thisPermission._id);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       } finally {
         try {
           if (i === a.length - 1) {
-            console.log('permission seeded');
+            // console.log('permission seeded');
             let role = await Role.findOne({ slug: 'super-admin' });
             if (!role) {
               role = await Role.create({
@@ -97,10 +97,10 @@ const seed = async (): Promise<void> => {
               admin?.roles.push(role._id);
             }
             await admin?.save();
-            console.log('role seeded and permission added');
+            // console.log('role seeded and permission added');
           }
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       }
     });
@@ -132,8 +132,10 @@ const seed = async (): Promise<void> => {
         [camelCaseRoleName]: role._id,
       };
       await settings.save();
+
       // console.log(settings)
     }
+    log.info(`Seeding Complete`);
   } catch (error) {
     console.log(error);
   }

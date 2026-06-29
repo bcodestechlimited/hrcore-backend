@@ -46,7 +46,7 @@ export default class JobService {
     data: Partial<Job> = {},
   ): Promise<serviceResponseType<Job>> {
     // return await JobModel.create(data);
-    console.log('payload', payload, CreateJobDto);
+    // console.log('payload', payload, CreateJobDto);
     validateDTO(CreateJobDto, payload);
     try {
       const createdJob = await JobModel.create({

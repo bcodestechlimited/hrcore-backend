@@ -24,7 +24,7 @@ export default class AuthService {
       const user = await UserModel.findOne({
         email: data.email,
       }).orFail(new Error('User not found'));
-     
+
       const token = await (user as UserType).generateJWT();
       return {
         success: true,
@@ -41,6 +41,37 @@ export default class AuthService {
   }
   static async login(data: LoginDto): Promise<serviceResponseType> {
     try {
+      const isDev = process.env.NODE_ENV === 'development';
+
+      // 🔹 DEV MODE: Email-only login
+      if (isDev) {
+        const user = await User.findOne({ email: data.username });
+
+        if (!user) {
+          return {
+            success: false,
+            message: 'User not found',
+            data: null,
+          };
+        }
+
+        if (user.email && !user.emailVerified) {
+          return {
+            success: false,
+            message: 'Email not verified',
+            data: null,
+          };
+        }
+
+        const token = await user.generateJWT();
+
+        return {
+          success: true,
+          message: 'Login successful (development mode)',
+          data: { user, token },
+        };
+      }
+
       const { user, error } = await User.authenticate()(
         data.username,
         data.password,

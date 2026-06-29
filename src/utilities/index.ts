@@ -22,14 +22,14 @@ export const remoteCallWithMethod = async (
 ) => {
   // get all the url string from the allowedService object
   const allowedServiceUrl = Object.keys(data.allowedService);
-  console.log(allowedServiceUrl, 'allowedServiceUrl');
+  // console.log(allowedServiceUrl, 'allowedServiceUrl');
   const { baseUrl, mainUrl, config } = data;
   const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-  console.log(req.url, 'req.url');
+  // console.log(req.url, 'req.url');
   const serviceUrl = fullUrl.split(mainUrl)[1];
-  console.log(serviceUrl, 'serviceUrl');
+  // console.log(serviceUrl, 'serviceUrl');
   const originalUrl = decodeURIComponent(baseUrl + serviceUrl);
-  console.log(originalUrl, 'originalUrl');
+  // console.log(originalUrl, 'originalUrl');
   // not just includes but match the url using regex
   const match = allowedServiceUrl.filter((url) => {
     const regex = new RegExp(url);

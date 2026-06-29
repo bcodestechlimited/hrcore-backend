@@ -59,14 +59,14 @@ export const authenticator: any = async (
               message: 'Invalid token',
             };
           }
-          console.info('User', user._id, user.email);
+          // console.info('User', user._id, user.email);
           req.user = user;
-          console.info(
-            'User authenticated',
-            user?._id,
-            req.originalUrl,
-            req.url,
-          );
+          // console.info(
+          //   'User authenticated',
+          //   user?._id,
+          //   req.originalUrl,
+          //   req.url,
+          // );
           // if (
           //   user.status !== 'active' &&
           //   req.method !== 'GET' &&
@@ -189,7 +189,7 @@ export const checkUserTypes =
       process.env.ADMIN_JWT_SECRET,
     ]);
     if (!authenticated?.success) {
-      console.log('authenticated', authenticated);
+      // console.log('authenticated', authenticated);
       return response(res, 401, authenticated?.message);
     }
 
