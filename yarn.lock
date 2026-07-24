@@ -2084,6 +2084,7 @@ __metadata:
     mongoose: "npm:^7.3.4"
     mongoose-findorcreate: "npm:^4.0.0"
     mongoose-id-validator: "npm:^0.6.0"
+    mongoose-id-validator2: "npm:^0.0.2"
     mongoose-unique-validator: "npm:^4.0.0"
     mongoose-validation-error-message-handler: "npm:^1.2.9"
     morgan: "npm:^1.10.0"
@@ -3132,6 +3133,13 @@ __metadata:
   version: 1.0.4
   resolution: "clone@npm:1.0.4"
   checksum: 10c0/2176952b3649293473999a95d7bebfc9dc96410f6cbd3d2595cf12fd401f63a4bf41a7adbfd3ab2ff09ed60cb9870c58c6acdd18b87767366fabfc163700f13b
+  languageName: node
+  linkType: hard
+
+"clone@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "clone@npm:2.1.2"
+  checksum: 10c0/ed0601cd0b1606bc7d82ee7175b97e68d1dd9b91fd1250a3617b38d34a095f8ee0431d40a1a611122dcccb4f93295b4fdb94942aa763392b5fe44effa50c2d5e
   languageName: node
   linkType: hard
 
@@ -7056,6 +7064,16 @@ __metadata:
   version: 4.0.0
   resolution: "mongoose-findorcreate@npm:4.0.0"
   checksum: 10c0/1869782ed886f0a562b8800c91b42003e8c3523cb13b3167fb657bf757336e2fef8beadfa1ce8ea029c1ecfd774be77839a7aec6194fdba8faba536bae987913
+  languageName: node
+  linkType: hard
+
+"mongoose-id-validator2@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "mongoose-id-validator2@npm:0.0.2"
+  dependencies:
+    clone: "npm:^2.1.2"
+    traverse: "npm:^0.6.6"
+  checksum: 10c0/96d907d81069d3d54913a9b7b66ff7bd8d1d38ef027589fc722ca465ea6f3ee70ed840ce6dc0ec1439c8a16eac40069c8e9c1dce0eaa34c77cd9b3a61994a3a1
   languageName: node
   linkType: hard
 
