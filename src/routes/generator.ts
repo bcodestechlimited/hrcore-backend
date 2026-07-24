@@ -1,4 +1,5 @@
 import express from 'express';
+import { RequestHandler } from "express";
 import { authenticate } from '../middlewares/authentication';
 
 import DataController from '../controllers/generators/service';
@@ -10,8 +11,8 @@ router.all('/batch*', DataController.batch);
 router.post(
   '/:_type',
   // DataValidator.createSchema,
-  // validateEV,  
-  multerUpload.any(),
+  // validateEV,
+  multerUpload.any() as unknown as RequestHandler,
   DataController.create,
 );
 
@@ -42,7 +43,7 @@ router.put(
   '/:_type/:id',
   // DataValidator.updateOneSchema,
   // validateEV,
-  multerUpload.any(),
+  multerUpload.any() as unknown as RequestHandler,
   DataController.updateOne,
 );
 

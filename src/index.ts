@@ -8,13 +8,13 @@ import morgan from 'morgan';
 import router from './routes/v1';
 import morganBody from 'morgan-body';
 import swaggerUi from 'swagger-ui-express';
+import { RequestHandler } from 'express';
 import cors from 'cors';
 import { endpointSpec } from './swagger/definition';
 import * as fs from 'fs';
 import * as path from 'path';
 import mongoose from 'mongoose';
 import { ip, ipv6 } from 'address';
-
 
 const listEndpoints = require('express-list-endpoints');
 
@@ -68,7 +68,7 @@ app.get(endpointPath, (req: Request, res: Response) => {
 });
 app.use(
   swaggerPath,
-  swaggerUi.serve,
+  swaggerUi.serve as unknown as RequestHandler,
   swaggerUi.setup(endpointSpec(routes), {
     explorer: true,
     swaggerOptions: {
@@ -81,7 +81,7 @@ app.use(
       docExpansion: 'none',
       // maxDisplayedTags: 5,
     },
-  }),
+  }) as unknown as RequestHandler,
 );
 
 // render spec.json

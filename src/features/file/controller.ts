@@ -14,6 +14,7 @@ import _ from 'passport-local-mongoose';
 import { saveFiles, uploadTheFile } from '../../services/fileUpload';
 import { authenticate } from '../../middlewares/authentication';
 import { multerUpload } from '../../middlewares/upload';
+import { RequestHandler } from "express";
 const router = express.Router();
 const FilePathName = '/File';
 /**
@@ -40,7 +41,7 @@ const FilePathName = '/File';
 router.post(
   '/',
   authenticate,
-  multerUpload.any(),
+  multerUpload.any() as unknown as RequestHandler,
   async (req: any, res: Response) => {
     // throwPermIfError(await canCreateFile(req, true));
     // const content = throwIfError(
