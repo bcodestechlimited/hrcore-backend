@@ -1,11 +1,11 @@
 import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { Company } from '../company/model';
 import { File } from '../file/schema';
 import { Department } from '../department/model';
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<Announcement>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

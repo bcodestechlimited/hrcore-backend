@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 
 const { Schema } = mongoose;
 
@@ -65,8 +65,8 @@ const feedbackSchema = new Schema(
   },
 );
 
-feedbackSchema.plugin(mongooseIdValidator);
-
+// feedbackSchema.plugin(mongooseIdValidator);
+// 
 
 feedbackSchema.pre('save', function (next) {
   this.slug = `${this.refType}-${this.ref}-${this.createdBy}-${this.for}-${this.owner}`;

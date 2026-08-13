@@ -1,7 +1,7 @@
 import mongoose, { Document, InferSchemaType } from 'mongoose';
 const { Schema } = mongoose;
 import slugify from 'slugify';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 
 const permissionSchema = new Schema(
   {
@@ -32,7 +32,7 @@ const permissionSchema = new Schema(
   },
 );
 
-permissionSchema.plugin(mongooseIdValidator);
+// permissionSchema.plugin(mongooseIdValidator);
 
 permissionSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });

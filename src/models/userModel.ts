@@ -6,7 +6,7 @@ import {
   plugin,
 } from '@typegoose/typegoose';
 import passportLocalMongoose from 'passport-local-mongoose';
-import idValidator from 'mongoose-id-validator2';
+// import idValidator from 'mongoose-id-validator2';
 import { signJWT } from '../utilities/jwt';
 import { PassportLocalDocument, PassportLocalModel, Types } from 'mongoose';
 import { Department } from '../features/department/model';
@@ -123,7 +123,7 @@ export enum Status {
   SUSPENDED = 'suspended',
 }
 
-@plugin(idValidator)
+// @plugin(idValidator)
 @plugin(passportLocalMongoose, {
   ...options,
   usernameField: 'email',

@@ -6,10 +6,10 @@ import {
   modelOptions,
   Ref,
 } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<Company>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

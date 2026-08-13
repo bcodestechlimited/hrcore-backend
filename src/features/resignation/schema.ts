@@ -1,5 +1,5 @@
 import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { Company } from '../company/model';
 
@@ -12,7 +12,7 @@ export enum ResignationStatus {
   Cancelled = 'Cancelled',
 }
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<Resignation>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

@@ -1,5 +1,5 @@
 import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { Company } from '../company/model';
 
@@ -13,7 +13,7 @@ export enum InvoiceTemplate {
   CLIENT = 'client',
 }
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<InvoiceCode>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

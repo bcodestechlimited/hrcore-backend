@@ -1,5 +1,5 @@
 import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { InvoiceContact } from '../invoiceContact/schema';
 import { InvoiceTag } from '../invoiceTag/schema';
@@ -24,7 +24,7 @@ export enum InvoiceTemplate {
   CRYSTALCHECK = 'crystalcheck',
   CLIENT = 'client',
 }
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<Invoice>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

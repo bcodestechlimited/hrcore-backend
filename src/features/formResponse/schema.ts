@@ -1,10 +1,10 @@
 import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { Form } from '../form/schema';
 import { FormQuestion } from '../formQuestion/schema';
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @modelOptions({
   schemaOptions: { timestamps: true },
   options: { automaticName: true },
@@ -21,7 +21,7 @@ export class Answers {
   public responses!: string[];
 }
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<FormResponse>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

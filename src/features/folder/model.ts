@@ -6,13 +6,13 @@ import {
   modelOptions,
   Ref,
 } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { Position } from '../position/model';
 import { Level } from '../level/model';
 import { Company } from '../company/model';
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<Folder>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

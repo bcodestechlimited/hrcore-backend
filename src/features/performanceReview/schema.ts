@@ -1,5 +1,5 @@
 import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { Department } from '../department/model';
 import { Company } from '../company/model';
@@ -43,7 +43,7 @@ export class PerformanceSection {
   public kpis: KPI[];
 }
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<PerformanceReview>('save', function (next) {
   this.record = this.performance + '-' + this.createdBy;
   next();

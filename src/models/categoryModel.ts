@@ -1,5 +1,5 @@
 import mongoose, { Schema, InferSchemaType } from 'mongoose';
-import idValidator from 'mongoose-id-validator2';
+// import idValidator from 'mongoose-id-validator2';
 const categorySchema = new Schema(
   {
     name: {
@@ -55,7 +55,7 @@ categorySchema.pre('save', function (next) {
 });
 
 // categorySchema.plugin(mongoose.idValidator);
-categorySchema.plugin(idValidator);
+// categorySchema.plugin(idValidator);
 
 export type CategoryType = InferSchemaType<typeof categorySchema>;
 

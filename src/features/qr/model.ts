@@ -7,7 +7,7 @@ import {
   Ref,
   DocumentType,
 } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import mongoose, { FilterQuery } from 'mongoose';
 // import * as findorcreate from 'mongoose-findorcreate';
 const findOrCreate = require('mongoose-findorcreate');
@@ -43,7 +43,7 @@ enum Type {
   schemaOptions: { timestamps: true },
   options: { automaticName: true },
 })
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<Qr>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

@@ -1,5 +1,5 @@
 import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { Form } from '../form/schema';
 
@@ -16,7 +16,7 @@ export enum FormQuestionType {
   RANGE = 'range',
 }
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<FormQuestion>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

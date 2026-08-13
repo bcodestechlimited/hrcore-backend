@@ -1,5 +1,5 @@
 import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { Form } from '../form/schema';
 import { Company } from '../company/model';
@@ -25,7 +25,7 @@ export enum JobStatus {
   CLOSED = 'closed',
 }
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<Job>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

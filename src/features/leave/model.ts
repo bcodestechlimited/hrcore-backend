@@ -6,11 +6,11 @@ import {
   modelOptions,
   Ref,
 } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { LeaveType } from '../leaveType/model';
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<Leave>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

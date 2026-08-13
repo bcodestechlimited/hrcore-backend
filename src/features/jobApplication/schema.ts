@@ -1,5 +1,5 @@
 import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 import { User } from '../../models/userModel';
 import { Job } from '../job/schema';
 import { Company } from '../company/model';
@@ -12,7 +12,7 @@ export enum JobApplicationStatus {
   'Background check' = 'Background check',
 }
 
-@plugin(mongooseIdValidator)
+// @plugin(mongooseIdValidator)
 @pre<JobApplication>('save', function (next) {
   // this.record = doc.name + '-' + doc.createdBy;
   next();

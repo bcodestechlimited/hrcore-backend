@@ -1,7 +1,7 @@
 import mongoose, { InferSchemaType } from 'mongoose';
 const { Schema } = mongoose;
 import slugify from 'slugify';
-import mongooseIdValidator from 'mongoose-id-validator2';
+// import mongooseIdValidator from 'mongoose-id-validator2';
 
 const roleSchema = new Schema(
   {
@@ -72,7 +72,7 @@ const roleSchema = new Schema(
   },
 );
 
-roleSchema.plugin(mongooseIdValidator);
+// roleSchema.plugin(mongooseIdValidator);
 
 roleSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
