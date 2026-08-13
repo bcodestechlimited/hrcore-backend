@@ -23,6 +23,7 @@
     "@novu/node": "^0.16.4",
     "@typegoose/typegoose": "^11.3.0",
     "address": "^2.0.3",
+    "ajv": "^8.20.0",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "class-validator": "^0.14.0",
