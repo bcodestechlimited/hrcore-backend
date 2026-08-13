@@ -34,7 +34,7 @@ export class FormQuestion {
   @prop({})
   public description!: string;
 
-  @prop({ enum: FormQuestionType, required: true })
+  @prop({ type: String, enum: FormQuestionType, required: true })
   public type!: FormQuestionType;
 
   @prop({

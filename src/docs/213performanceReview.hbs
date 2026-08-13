@@ -1,0 +1,126 @@
+/**
+ * Fetches performanceReview
+ *
+ * @openapi
+ *
+ * /performanceReview/{id}:
+ *   get:
+ *     summary: GET - performanceReview
+ *     description: 
+ *     tags:
+ *       - performanceReview
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: performanceReview successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters: 
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request 
+ *       - in: query
+ *         name: query
+ *         required: false
+ *         schema:
+ *           type: object
+ */
+/**
+ * Updates performanceReview
+ * 
+ * @openapi
+ * 
+ * /performanceReview/{id}:
+ *   put:
+ *     summary: PUT performanceReview
+ *     description: 
+ *     tags:
+ *       - performanceReview
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *               - $ref: '#/components/schemas/GeneralBody'
+ *         multipart/form-data:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *     responses:
+ *       200:
+ *         description: performanceReview successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters: 
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request 
+ *       - in: query
+ *         name: query
+ *         required: false
+ *         schema:
+ *           type: object
+ */
+/**
+ * Deletes performanceReview
+ * 
+ * @openapi
+ * 
+ * /performanceReview/{id}:
+ *   delete:
+ *     summary: Delete performanceReview
+ *     description: 
+ *     tags:
+ *       - performanceReview
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: performanceReview deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters: 
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request 
+ *       - in: query
+ *         name: query
+ *         required: false
+ *         schema:
+ *           type: object
+ */

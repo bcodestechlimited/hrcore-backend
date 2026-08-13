@@ -1,0 +1,73 @@
+/**
+ * Creates requestForm
+ *
+ * @openapi
+ *
+ * /requestForm:
+ *   post:
+ *     summary: POST - requestForm
+ *     description: 
+ *     tags:
+ *       - requestForm
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *               - $ref: '#/components/schemas/GeneralBody'
+ *         multipart/form-data:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *     responses:
+ *       200:
+ *         description: requestForm successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ *     parameters:
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request
+ */
+/**
+ * Fetches requestForm
+ *
+ * @openapi
+ *
+ * /requestForm:
+ *   get:
+ *     summary: GET - requestForm
+ *     description: 
+ *     tags:
+ *       - requestForm
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: requestForm successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters:
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request 
+ *       - in: query
+ *         name: query
+ *         required: false
+ *         schema:
+ *           type: object
+ */

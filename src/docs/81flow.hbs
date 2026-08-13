@@ -1,0 +1,83 @@
+/**
+ * Creates flow
+ *
+ * @openapi
+ *
+ * /flow/{companyId}:
+ *   post:
+ *     summary: POST - flow
+ *     description: 
+ *     tags:
+ *       - flow
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *               - $ref: '#/components/schemas/GeneralBody'
+ *         multipart/form-data:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *     responses:
+ *       200:
+ *         description: flow successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ *     parameters: 
+ *       - in: path
+ *         name: companyId
+ *         required: true
+ *         schema:
+ *           type: string
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request
+ */
+/**
+ * Fetches flow
+ *
+ * @openapi
+ *
+ * /flow/{companyId}:
+ *   get:
+ *     summary: GET - flow
+ *     description: 
+ *     tags:
+ *       - flow
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: flow successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters: 
+ *       - in: path
+ *         name: companyId
+ *         required: true
+ *         schema:
+ *           type: string
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request 
+ *       - in: query
+ *         name: query
+ *         required: false
+ *         schema:
+ *           type: object
+ */

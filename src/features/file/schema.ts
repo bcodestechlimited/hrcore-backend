@@ -17,7 +17,7 @@ export class File {
   @prop({})
   name?: string;
 
-  @prop({ enum: ['image', 'video', 'audio', 'document'] })
+  @prop({ type: String, enum: ['image', 'video', 'audio', 'document'] })
   type?: string;
 
   @prop({})

@@ -60,7 +60,7 @@ export class Experience {
 
   @prop({})
   endDate!: Date;
-  
+
 }
 
 export class Qualification {
@@ -150,6 +150,7 @@ export class User {
   emailVerified!: boolean;
 
   @prop({
+    type: String,
     enum: UserTypes,
     immutable: true,
     required: true,
@@ -160,6 +161,7 @@ export class User {
   isAdmin!: boolean;
 
   @prop({
+    type: String,
     enum: Status,
     immutable: false,
     default: function () {

@@ -57,6 +57,7 @@ export class JobApplication {
   public noticePeriod!: number;
 
   @prop({
+    type: String,
     enum: JobApplicationStatus,
     default: 'Newly applied',
   })

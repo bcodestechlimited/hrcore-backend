@@ -97,10 +97,10 @@ export class Invoice {
   @prop({ ref: () => InvoiceAccount })
   public accounts!: Ref<InvoiceAccount>[];
 
-  @prop({ enum: InvoiceStatus, default: InvoiceStatus.OPEN })
+  @prop({ type: String, enum: InvoiceStatus, default: InvoiceStatus.OPEN })
   public status?: InvoiceStatus;
 
-  @prop({ enum: InvoiceTemplate, required: true })
+  @prop({ type: String, enum: InvoiceTemplate, required: true })
   public template?: InvoiceTemplate;
 
   @prop({ required: true, immutable: true, ref: () => Company })

@@ -3,7 +3,6 @@ import { prop, plugin, pre, modelOptions, Ref } from '@typegoose/typegoose';
 import { User } from '../../models/userModel';
 import { Company } from '../company/model';
 
-
 // Status enum
 export enum ResignationStatus {
   Pending = 'Pending',
@@ -64,8 +63,6 @@ export class Resignation {
   @prop()
   public haveCompanyProperty!: boolean;
 
-
-
   @prop()
   public lastWorkingDate!: Date;
 
@@ -112,7 +109,7 @@ export class Resignation {
   public salarySettlement!: string;
 
   //TODO: Add status enum
-  @prop({default: 'Pending'})
+  @prop({ type: String, default: 'Pending' })
   public status!: ResignationStatus;
 
   @prop()

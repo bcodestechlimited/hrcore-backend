@@ -1,0 +1,50 @@
+/**
+ * Updates leaveRequest
+ * 
+ * @openapi
+ * 
+ * /leaveRequest/{companyId}/{id}/review:
+ *   put:
+ *     summary: PUT leaveRequest
+ *     description: 
+ *     tags:
+ *       - leaveRequest
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *               - $ref: '#/components/schemas/GeneralBody'
+ *         multipart/form-data:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *     responses:
+ *       200:
+ *         description: leaveRequest successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters: 
+ *       - in: path
+ *         name: companyId
+ *         required: true
+ *         schema:
+ *           type: string 
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request
+ */

@@ -43,6 +43,7 @@ export class Job {
 
   @prop({
     // TODO: Type should be enum
+    type: String,
     enum: JobType,
   })
   public type!: JobType;
@@ -55,6 +56,7 @@ export class Job {
 
   @prop({
     // TODO: level should be enum
+    type: String,
     enum: JobLevel,
   })
   public level!: JobLevel;
@@ -68,6 +70,7 @@ export class Job {
   recruiters!: string[];
 
   @prop({
+    type: String,
     enum: JobStatus,
   })
   public status!: JobStatus;

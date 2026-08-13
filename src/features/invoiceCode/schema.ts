@@ -29,7 +29,7 @@ export class InvoiceCode {
   @prop({ required: true, immutable: true, ref: () => Company })
   public company!: Ref<Company>;
 
-  @prop({ enum: InvoiceTemplate, required: true, unique: true })
+  @prop({ type: String, enum: InvoiceTemplate, required: true, unique: true })
   public type!: InvoiceTemplate;
 
   @prop({ required: true })

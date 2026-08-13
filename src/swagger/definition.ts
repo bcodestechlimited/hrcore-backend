@@ -78,49 +78,49 @@ const gernerateDTOSchema = (ALLDTO: any) => {
   return schemas;
 };
 
-// function that import files dynamically
 function importEsALL(paths: string[]) {
-  // console.log(paths, 'paths');
-  let allFiles: any = {};
+  const allFiles: any = {};
+
   try {
-    paths.map(async (fileName) => {
-      let fileResolved = path.resolve(fileName);
+    paths.forEach((fileName) => {
+      const fileResolved = path.resolve(fileName);
 
       const module = require(fileResolved);
-      // console.log(module, 'module');
 
-      const resolvedname = fileResolved.split('dto.ts')[0];
-
-      // const path1 =
-      //   'C:\\Users\\USER\\Documents\\Github\\Cephas\\HR-CORE-API\\src\\features\\tool\\';
-      // const path2 = '/app/src/features/tool/';
+      const resolvedname = fileResolved.replace(/dto\.(ts|js)$/, '');
 
       const regex = /([a-zA-Z]+)\/?$/;
       const match = regex.exec(resolvedname);
+
       let name = match?.[1] ?? '';
+
       if (name === '') {
         const regex = /([a-zA-Z]+)\\?$/;
         const match = regex.exec(resolvedname);
         name = match?.[1] ?? '';
       }
-      // console.log(name, 'name');
+
       allFiles[name] = module;
     });
   } catch (e) {
-    // console.log(e);
-    // is not a directory
-    // allFiles = [importPath];
+    console.log(e);
   }
 
   return allFiles;
 }
 
-const featuresPath = path.join(__dirname, '../features');
+const isProduction = process.env.NODE_ENV === 'production';
+
+const featuresPath = isProduction
+  ? path.join(__dirname, 'features')
+  : path.join(__dirname, '../features');
+
 console.log(featuresPath, 'featuresPath');
 
-const dtoPattern = 'dto.ts';
+const dtoPattern = isProduction ? 'dto.js' : 'dto.ts';
 
 const basePath = `${process.env.BASE_PATH}`;
+
 const dtoFiles = getFullRoute(featuresPath, dtoPattern);
 
 const importedDTO = importEsALL(dtoFiles);

@@ -1,0 +1,126 @@
+/**
+ * Fetches approvalFlow
+ *
+ * @openapi
+ *
+ * /approvalFlow/{id}:
+ *   get:
+ *     summary: GET - approvalFlow
+ *     description: 
+ *     tags:
+ *       - approvalFlow
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: approvalFlow successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters: 
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request 
+ *       - in: query
+ *         name: query
+ *         required: false
+ *         schema:
+ *           type: object
+ */
+/**
+ * Updates approvalFlow
+ * 
+ * @openapi
+ * 
+ * /approvalFlow/{id}:
+ *   put:
+ *     summary: PUT approvalFlow
+ *     description: 
+ *     tags:
+ *       - approvalFlow
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *               - $ref: '#/components/schemas/GeneralBody'
+ *         multipart/form-data:
+ *           schema:
+ *             $ref: '#/components/schemas/GeneralBody'
+ *     responses:
+ *       200:
+ *         description: approvalFlow successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters: 
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request 
+ *       - in: query
+ *         name: query
+ *         required: false
+ *         schema:
+ *           type: object
+ */
+/**
+ * Deletes approvalFlow
+ * 
+ * @openapi
+ * 
+ * /approvalFlow/{id}:
+ *   delete:
+ *     summary: Delete approvalFlow
+ *     description: 
+ *     tags:
+ *       - approvalFlow
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: approvalFlow deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters: 
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request 
+ *       - in: query
+ *         name: query
+ *         required: false
+ *         schema:
+ *           type: object
+ */

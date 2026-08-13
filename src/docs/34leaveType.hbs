@@ -1,0 +1,33 @@
+/**
+ * Fetches leaveType
+ *
+ * @openapi
+ *
+ * /leaveType:
+ *   get:
+ *     summary: GET - leaveType
+ *     description: 
+ *     tags:
+ *       - leaveType
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: leaveType successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+  *     parameters:
+*       - in: header
+*         name: companyId
+*         schema:
+*           type: string
+*           default: 64b7d25484151e9e5b82332e
+*         description: Custom header for request 
+ *       - in: query
+ *         name: query
+ *         required: false
+ *         schema:
+ *           type: object
+ */

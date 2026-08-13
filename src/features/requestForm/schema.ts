@@ -28,7 +28,7 @@ export class RequestForm {
   public reliever!: Ref<User>;
 
   // TODO: Create status enum
-  @prop({ default: LeaveRequestStatus.PENDING })
+  @prop({ type: String, default: LeaveRequestStatus.PENDING })
   public status?: LeaveRequestStatus;
 
   @prop({ required: true, immutable: true, ref: () => Company })
